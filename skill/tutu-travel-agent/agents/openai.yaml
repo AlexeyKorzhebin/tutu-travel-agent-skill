@@ -1,0 +1,13 @@
+interface:
+  display_name: "Tutu Travel Agent"
+  short_description: "Travel search and trip-choice assistant"
+  default_prompt: "Use $tutu-travel-agent to compare flights, hotels, or transport options and recommend the best choice."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tutu"
+      description: "Tutu travel search MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.tutu.ru/mcp"
+policy:
+  allow_implicit_invocation: true
