@@ -118,7 +118,8 @@ After installation, try prompts like:
 
 ## Release
 
-The first public shareable cut is `v0.1.0`.
+- `v0.1.0` — first public shareable cut
+- `v0.1.1` — one-command installer via `scripts/install.sh`
 
 ## License
 
