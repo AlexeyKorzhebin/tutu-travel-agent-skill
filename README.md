@@ -26,6 +26,8 @@ The skill is designed to turn raw `tutu` MCP results into shortlist-style recomm
 ## Repo Layout
 
 ```text
+scripts/
+  install.sh
 skill/
   tutu-travel-agent/
     SKILL.md
@@ -54,26 +56,38 @@ Example:
 
 ## Install
 
-Copy `skill/tutu-travel-agent/` into your local skills directory.
+Zero-manual-work path:
 
-Typical targets:
+```bash
+git clone https://github.com/AlexeyKorzhebin/tutu-travel-agent-skill.git
+cd tutu-travel-agent-skill
+./scripts/install.sh --target codex
+```
+
+Other install targets:
+
+- Codex only: `./scripts/install.sh --target codex`
+- OpenClaw only: `./scripts/install.sh --target openclaw`
+- Both: `./scripts/install.sh --target all`
+- Replace an existing install: add `--force`
+- Keep one working copy via symlink: add `--link`
+
+Typical default target directories:
 
 - Codex: `$CODEX_HOME/skills/` or `~/.codex/skills/`
-- OpenClaw workspace skills folder, if you manage skills there
+- OpenClaw: `~/.openclaw/workspace/skills/`
 
 ## How To Install In Codex
 
 1. Make sure the `tutu` MCP server is configured in your Codex environment.
-2. Copy `skill/tutu-travel-agent/` into:
-   - `$CODEX_HOME/skills/`, or
-   - `~/.codex/skills/`
+2. Run `./scripts/install.sh --target codex`.
 3. Restart Codex or reopen the session if your setup caches skills on startup.
 4. Invoke the skill explicitly as `$tutu-travel-agent` or let it trigger from travel-selection requests.
 
 ## How To Install In OpenClaw
 
 1. Make sure the `tutu` MCP server is configured and reachable under the alias `tutu`.
-2. Copy `skill/tutu-travel-agent/` into the skills folder you use for OpenClaw-managed skills.
+2. Run `./scripts/install.sh --target openclaw`.
 3. Restart or reload the runtime if your current contour only discovers skills at startup.
 4. Use it for requests such as:
    - flight selection
